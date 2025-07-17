@@ -187,41 +187,41 @@ nav a {
     border: 0.1rem solid black;
 }
 
-/*slider*/
-.slider{
+.slider {
     width: 100%;
     height: auto;
     position: absolute;
     overflow: hidden;
     margin-top: 10rem;
-    margin-left: -5rem;
     margin-right: 0;
+    left: 0;
 }
 
-.slider .slide-track{
+.slider .slide-track {
     display: flex;
-
     animation: scroll 10s linear infinite;
     width: calc(15rem * 14);
-    -webkit-animation: scroll 20s linear infinite;   
+    -webkit-animation: scroll 20s linear infinite;
+    /* webkit */
 }
 
 .slider .slide {
     width: 15rem;
 }
 
-.slider .slide img{
+.slider .slide img {
     width: 100%;
 }
 
 @keyframes scroll {
-    0%{
+    0% {
         transform: translateX(0);
         -webkit-animation: translateX(0);
     }
-    100%{
-        -webkit-animation: translateX(0);
+
+    100% {
         transform: translateX(calc(-15rem * 7));
+        -webkit-animation: translateX(-15*7);
     }
 }
 
@@ -358,18 +358,6 @@ nav a {
     transition: transform 0.3s, color 0.3s;
 }
 
-/* =========================
-   SECCIÓN DE CONTACTO
-   ========================= */
-
-/* =========================
-   INFORMACIÓN Y MAPA
-   ========================= */
-
-
-/* =========================
-   REDES Y PIE DE PÁGINA
-   ========================= */
 
 /* FOOTER GENERAL */
 .footer-bottom {
@@ -525,28 +513,54 @@ nav a {
     opacity: 0;
 }
 
-.vacioUno,.vacioDos {
+.vacioUno,
+.vacioDos {
     animation: getVisible 3s ease-out;
 
 }
 
-.heroDos, .tarjeta, .preg{
-    animation: aparecer linear;
+.heroDos,
+.preg,
+.text-heroDos,
+.services .btn-black {
+    animation: blur ease-in-out;
     animation-timeline: view();
-    animation-range: entry 0% cover 40%;
+    animation-range: entry 0% cover 60%;
 }
-.textUno, .textDos, .textTres{
-     animation: aparecer linear;
+
+.textUno,
+.textDos,
+.textTres {
+    animation: blur ease-in-out;
     animation-timeline: view();
     animation-range: entry 0% cover 25%;
 }
-@keyframes aparecer{
-    from{
+
+.tarjeta {
+    animation: aparecer ease-in-out;
+    animation-timeline: view();
+    animation-range: entry 0% cover 40%;
+}
+
+@keyframes blur {
+    from {
+        opacity: 0.2;
+        filter: blur(0.8rem);
+    }
+
+    to {
+        opacity: 1;
+        filter: blur(0);
+    }
+}
+
+@keyframes aparecer {
+    from {
         opacity: 0;
         transform: scale(0.5);
     }
 
-    to{
+    to {
         opacity: 1;
         transform: scale(1);
     }
