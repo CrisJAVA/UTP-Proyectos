@@ -1,0 +1,388 @@
+/* ---------------------- BASE ---------------------- */
+html,
+body {
+
+  margin: 0;
+  overflow-x: hidden;
+  font-family: 'Segoe UI', sans-serif;
+  color: white;
+  background: url('../image/CPS.jpg') no-repeat center center fixed;
+  background-size: cover;
+  backdrop-filter: brightness(0.9);
+}
+
+.container {
+  min-height: 100vh;
+  /* ✅ Siempre ocupa toda la pantalla */
+  display: flex;
+  flex-direction: column;
+  padding: 50px;
+}
+
+.calendario {
+  flex: 1;
+  background-color: rgba(0, 0, 0, 0.5);
+  border-radius: 5px;
+  padding: 20px;
+  box-shadow: 0 8px 15px rgba(0, 0, 0, 0.5);
+}
+
+/* ---------------------- HEADER ---------------------- */
+.header {
+  background-color: black;
+  padding: 10px;
+  text-align: center;
+  width: 100%;
+}
+
+.header nav {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+}
+
+.header button {
+  margin: 0 5px;
+  padding: 10px 20px;
+  background: black;
+  color: white;
+  border: 2px solid white;
+  border-radius: 5px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.4s, color 0.4s;
+}
+
+.header button:hover,
+.header button.active {
+  background-color: white;
+  color: black;
+}
+
+nav a {
+  text-decoration: none;
+}
+
+.none {
+  border: none;
+  background-color: transparent;
+  width: 20%;
+  margin-left: 41%;
+
+}
+
+
+.logo-utp {
+  max-width: 100%;
+  height: auto;
+  margin-bottom: 2rem;
+  display: block;
+  transition: transform 0.6s ease;
+  
+}
+
+.logo-utp:hover {
+  cursor: pointer;
+  transform: scale(1.04);
+}
+
+/* ---------------------- MESES ---------------------- */
+.meses {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+.meses button {
+  padding: 10px 20px;
+  background: black;
+  color: white;
+  border: 2px solid crimson;
+  border-radius: 5px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: transform 0.2s, background-color 0.3s;
+}
+
+.meses button:hover {
+  background: crimson;
+  transform: scale(1.05);
+}
+
+.meses button:active {
+  transform: scale(0.95);
+}
+
+/* ---------------------- FILTROS DE CATEGORÍA ---------------------- */
+.filtros-categorias {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+.filtros-categorias>button,
+.categoria-dropdown>button {
+  padding: 10px 18px;
+  background-color: black;
+  color: white;
+  border: 2px solid white;
+  border-radius: 6px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: transform 0.3s, background-color 0.3s, color 0.3s;
+}
+
+.filtros-categorias>button:hover,
+.categoria-dropdown>button:hover {
+  background-color: white;
+  color: black;
+  transform: translateY(-4px);
+}
+
+.categoria-dropdown {
+  position: relative;
+  /* 🔑 para submenús */
+}
+
+.categoria-dropdown>button::after {
+  content: " ▾";
+  font-size: 12px;
+}
+
+.submenu {
+  display: none;
+  position: absolute;
+  top: 110%;
+  left: 0;
+  background-color: rgba(0, 0, 0, 0.95);
+  border: 2px solid white;
+  border-radius: 6px;
+  min-width: 180px;
+  z-index: 1000;
+  box-shadow: 0 8px 15px rgba(0, 0, 0, 0.5);
+}
+
+.submenu button {
+  background: none;
+  color: white;
+  border: none;
+  padding: 10px 14px;
+  width: 100%;
+  text-align: left;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.submenu button:hover {
+  background-color: crimson;
+}
+
+.categoria-dropdown.active .submenu {
+  display: block;
+}
+
+/* ---------------------- EVENTOS ---------------------- */
+.eventos {
+  flex: 1;
+  border-radius: 10px;
+}
+
+.evento {
+  margin: 15px 0;
+  padding: 10px 15px;
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  border-left: 5px solid crimson;
+  border-radius: 10px;
+  background: rgba(255, 255, 255, 0.08);
+}
+
+.evento img {
+  width: 80px;
+  height: 80px;
+  object-fit: cover;
+  border-radius: 10px;
+  border: 2px solid white;
+  box-shadow: 2px 2px 6px rgba(255, 255, 255, 0.2);
+}
+
+/* ---------------------- BOTONES DE EVENTO ---------------------- */
+.btn-inscribirme {
+  background: crimson;
+  color: white;
+  border: none;
+  padding: 6px 10px;
+  border-radius: 6px;
+  font-size: 0.85rem;
+  font-weight: bold;
+  cursor: pointer;
+  margin-left: auto;
+  box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.3);
+  transition: background 0.3s;
+}
+
+.btn-inscribirme:hover {
+  background: darkred;
+}
+
+.inscrito-container {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-left: auto;
+}
+
+.texto-inscrito {
+  color: lime;
+  font-weight: bold;
+  font-size: 0.9rem;
+}
+
+.btn-anular {
+  background: #444;
+  color: white;
+  border: none;
+  padding: 4px 8px;
+  border-radius: 5px;
+  font-size: 0.75rem;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.btn-anular:hover {
+  background: #ff3333;
+}
+
+/* ---------------------- MODAL ---------------------- */
+.modal {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.75);
+  backdrop-filter: blur(4px);
+  z-index: 2000;
+  justify-content: center;
+  align-items: center;
+}
+
+.modal.show {
+  display: flex;
+}
+
+.modal-content {
+  background: #141414;
+  color: #e0e0e0;
+  padding: 2rem 1.5rem;
+  border-radius: 6px;
+  width: 90%;
+  max-width: 360px;
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+  position: relative;
+}
+
+.modal-content h2 {
+  text-align: center;
+  color: #ff4d4d;
+}
+
+.modal-content .form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+
+.modal-content label {
+  font-size: 0.85rem;
+  color: #aaa;
+}
+
+.modal-content select,
+.modal-content input {
+  background: #1f1f1f;
+  color: #fff;
+  border: 1px solid #444;
+  padding: 0.55rem;
+  border-radius: 6px;
+}
+
+.modal-content select:focus,
+.modal-content input:focus {
+  border-color: crimson;
+  outline: none;
+  box-shadow: 0 0 4px crimson;
+}
+
+.modal-content button[type="submit"] {
+  background: crimson;
+  color: white;
+  border: none;
+  padding: 0.7rem;
+  border-radius: 6px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.modal-content button[type="submit"]:hover {
+  background: #a30000;
+}
+
+.close-modal {
+  position: absolute;
+  top: 12px;
+  right: 16px;
+  background: none;
+  border: none;
+  color: #888;
+  font-size: 1.2rem;
+  cursor: pointer;
+}
+
+.close-modal:hover {
+  color: crimson;
+}
+
+/* ---------------------- BOTÓN FLOTANTE ---------------------- */
+.floating-button {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  width: 60px;
+  height: 60px;
+  background: crimson;
+  color: white;
+  border: none;
+  border-radius: 50%;
+  font-size: 36px;
+  font-weight: bold;
+  cursor: pointer;
+  z-index: 9999;
+}
+
+/* ---------------------- RESPONSIVE ---------------------- */
+@media (max-width: 768px) {
+  .meses {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .evento {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .evento img {
+    width: 100%;
+    max-width: 300px;
+    height: auto;
+  }
+}
