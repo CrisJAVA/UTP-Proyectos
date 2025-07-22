@@ -257,3 +257,31 @@ function prepararFondoConFade(elemento, imagenes, intervalo) {
 prepararFondoConFade(vacioUno, imagenesVacioUno, 4000);
 prepararFondoConFade(vacioDos, imagenesVacioDos, 9000);
 
+document.getElementById("form").addEventListener("submit", function (e) {
+    e.preventDefault(); // Evita el envío del formulario real
+
+    const nombre = document.getElementById("name").value;
+    const correo = document.getElementById("email").value;
+
+    // Crear XML
+    const xmlContent = `
+<?xml version="1.0" encoding="UTF-8"?>
+<usuario>
+  <nombre>${nombre}</nombre>
+  <correo>${correo}</correo>
+</usuario>`.trim();
+
+    // Crear Blob y descargar archivo
+    const blob = new Blob([xmlContent], { type: "application/xml" });
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement("a");
+
+    a.href = url;
+    a.download = `registro_${nombre.toLowerCase().replace(/\s+/g, "_")}.xml`;
+    document.body.appendChild(a);
+    a.click();
+    document.body.removeChild(a);
+    URL.revokeObjectURL(url); // Limpia memoria
+
+    alert("Tu archivo XML ha sido descargado exitosamente.");
+});
