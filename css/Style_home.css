@@ -692,9 +692,20 @@ nav a {
     border: 2px solid black;
     width: 100%;
     max-width: 500px;
-    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
-    animation: slideDown 0.4s ease;
     box-sizing: border-box;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+}
+
+/* PANTALLAS PEQUEÑAS */
+@media (max-width: 600px) {
+    .modal-content {
+        width: 95vw;           /* ocupa casi todo el ancho de pantalla */
+        height: 90vh;          /* ocupa casi toda la altura */
+        max-width: none;       /* sin límite de ancho */
+        border-radius: 0;      /* sin esquinas redondeadas */
+        padding: 1.5rem;
+        overflow-y: auto;      /* si hay mucho contenido, permite scroll */
+    }
 }
 
 .modal-content h2 {
