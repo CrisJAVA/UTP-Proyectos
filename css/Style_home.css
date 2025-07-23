@@ -188,7 +188,7 @@ nav a {
 }
 
 /*slider*/
-.slider{
+.slider {
     width: 100%;
     height: auto;
     position: absolute;
@@ -198,28 +198,29 @@ nav a {
     margin-right: 0;
 }
 
-.slider .slide-track{
+.slider .slide-track {
     display: flex;
 
     animation: scroll 10s linear infinite;
     width: calc(15rem * 14);
-    -webkit-animation: scroll 20s linear infinite;   
+    -webkit-animation: scroll 20s linear infinite;
 }
 
 .slider .slide {
     width: 15rem;
 }
 
-.slider .slide img{
+.slider .slide img {
     width: 100%;
 }
 
 @keyframes scroll {
-    0%{
+    0% {
         transform: translateX(0);
         -webkit-animation: translateX(0);
     }
-    100%{
+
+    100% {
         -webkit-animation: translateX(0);
         transform: translateX(calc(-15rem * 7));
     }
@@ -525,28 +526,35 @@ nav a {
     opacity: 0;
 }
 
-.vacioUno,.vacioDos {
+.vacioUno,
+.vacioDos {
     animation: getVisible 3s ease-out;
 
 }
 
-.heroDos, .tarjeta, .preg{
+.heroDos,
+.tarjeta,
+.preg {
     animation: aparecer linear;
     animation-timeline: view();
     animation-range: entry 0% cover 40%;
 }
-.textUno, .textDos, .textTres{
-     animation: aparecer linear;
+
+.textUno,
+.textDos,
+.textTres {
+    animation: aparecer linear;
     animation-timeline: view();
     animation-range: entry 0% cover 25%;
 }
-@keyframes aparecer{
-    from{
+
+@keyframes aparecer {
+    from {
         opacity: 0;
         transform: scale(0.5);
     }
 
-    to{
+    to {
         opacity: 1;
         transform: scale(1);
     }
@@ -663,6 +671,7 @@ nav a {
 
 
 }
+
 /* =========================
    MODAL (RESPONSIVO Y ESTILOS)
    ========================= */
@@ -699,14 +708,37 @@ nav a {
 /* PANTALLAS PEQUEÑAS */
 @media (max-width: 600px) {
     .modal-content {
-        width: 95vw;           /* ocupa casi todo el ancho de pantalla */
-        height: 90vh;          /* ocupa casi toda la altura */
-        max-width: none;       /* sin límite de ancho */
-        border-radius: 0;      /* sin esquinas redondeadas */
+        width: 95vw;
+        /* ocupa casi todo el ancho de pantalla */
+        height: 90vh;
+        /* ocupa casi toda la altura */
+        max-width: none;
+        /* sin límite de ancho */
+        border-radius: 0;
+        /* sin esquinas redondeadas */
         padding: 1.5rem;
-        overflow-y: auto;      /* si hay mucho contenido, permite scroll */
+        overflow-y: auto;
+        /* si hay mucho contenido, permite scroll */
     }
+
+    .heroDos,
+    .tarjeta,
+    .preg {
+        animation: aparecer linear;
+        animation-timeline: view();
+        animation-range: entry 0% cover 18%;
+    }
+
+    .textUno,
+    .textDos,
+    .textTres {
+        animation: aparecer linear;
+        animation-timeline: view();
+        animation-range: entry 0% cover 5%;
+    }
+
 }
+
 
 .modal-content h2 {
     margin-top: 0;
