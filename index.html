@@ -318,6 +318,9 @@
 
     <script src="js/homejava.js"></script>
     <script>
+        document.getElementById("abrirModal").addEventListener("click", function () {
+            document.getElementById("modalRegistro").style.display = "block";
+        });
 
         document.getElementById("cerrarModal").addEventListener("click", function () {
             document.getElementById("modalRegistro").style.display = "none";
