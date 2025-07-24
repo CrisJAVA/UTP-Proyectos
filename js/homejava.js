@@ -281,7 +281,6 @@ document.getElementById("form").addEventListener("submit", function (e) {
     document.body.appendChild(a);
     a.click();
     document.body.removeChild(a);
-    URL.revokeObjectURL(url); // Limpia memoria
 
     alert("Tu archivo XML ha sido descargado exitosamente.");
 });
